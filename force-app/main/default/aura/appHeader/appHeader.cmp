@@ -1,0 +1,10 @@
+<aura:component controller="PocketMoneyAppController">
+    
+    <lightning:layout class="slds-page-header" horizontalAlign="center" verticalAlign="start" multipleRows="false" pullToBoundary="small">
+        <lightning:layoutItem>
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">Pocket Money App</h1>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>	

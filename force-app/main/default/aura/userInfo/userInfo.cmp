@@ -1,0 +1,80 @@
+<aura:component controller="PocketMoneyAppController">
+    <aura:attribute name="currentUser" type="User"/>
+    <aura:attribute name="transactionList" type="Transaction__c[]"/>
+    <aura:attribute name="newTransaction" type="Transaction__c"
+                    default="{  'sObjectType' : 'Transaction__c',
+                                'Name' : '',
+                                'Amount__c' : 0,
+                                'Created_Date__c' : '',
+                                'User__c' : ''}"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <lightning:layout title="User Info" class="slds-box" multipleRows="true">
+        <lightning:layoutItem>
+            <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                    <h2>User Info</h2>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <p class="field-title" title="Name">Name</p>
+                    <p>{! v.currentUser.Name }</p>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <p class="field-title" title="Address">Address</p>
+                    <p>{! v.currentUser.Address }</p>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <p class="field-title" title="Email">Email</p>
+                    <p>{! v.currentUser.Email__c }</p>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <p class="field-title" title="MobilePhone">MobilePhone</p>
+                    <p>{! v.currentUser.MobilePhone }</p>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <div class="header-column">
+                    <p class="field-title" title="Balance">Balance</p>
+                    <p>{! v.currentUser.Balance__c }</p>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout>
+        <lightning:layoutItem class="slds-box">
+            <lightning:layoutItem>
+                <div class="slds-page-header__name">
+                    <div class="slds-page-header__name-title">
+                        <h2>Create transaction form</h2>
+                    </div>
+                </div>
+            </lightning:layoutItem>
+            <form class="slds-form--stacked">          
+                <lightning:input aura:id="transactionform" label="Transaction Name"
+                                 name="transactionname"
+                                 value="{!v.newTransaction.Name}"
+                                 required="true"/> 
+                <lightning:input type="number" aura:id="transactionform" label="Transaction Amount"
+                                 name="transactionamount"
+                                 formatter="currency"
+                                 value="{!v.newTransaction.Amount__c}"/>
+                <lightning:button label="Create Transaction"
+                                  onclick="{!c.clickCreate}"/>
+            </form>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout>
+        <lightning:layoutItem>
+            <c:transactionCardList transactions="{!v.transactionList}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>	

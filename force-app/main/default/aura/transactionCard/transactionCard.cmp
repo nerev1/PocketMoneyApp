@@ -1,0 +1,16 @@
+<aura:component controller="PocketMoneyAppController">
+    <aura:attribute name="transaction" type="Transaction__c"/>
+
+    <lightning:card title="{!v.transaction.Name}">
+        <aura:set attribute="footer">
+            <p>Created Date: <lightning:formattedDateTime value="{!v.transaction.Created_Date__c}"/></p>
+        </aura:set>
+        <p class="slds-text-heading--medium slds-p-horizontal--small">
+           Amount: <lightning:formattedNumber value="{!v.transaction.Amount__c}"/>
+        </p>
+        <p class="slds-text-heading--medium slds-p-horizontal--small">
+            Created Date: <lightning:formattedDateTime value="{!v.transaction.Created_Date__c}"/>
+         </p>
+        <lightning:button variant="base" label="Delete" title="Delete" onclick="{!c.deleteTransaction}"/>
+    </lightning:card>
+</aura:component>
