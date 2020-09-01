@@ -1,13 +1,7 @@
-<aura:component controller="PocketMoneyAppController">
+<aura:component controller="UserInfoController">
     <aura:attribute name="currentUser" type="User"/>
-    <aura:attribute name="transactionList" type="Transaction__c[]"/>
-    <aura:attribute name="newTransaction" type="Transaction__c"
-                    default="{  'sObjectType' : 'Transaction__c',
-                                'Name' : '',
-                                'Amount__c' : 0,
-                                'Created_Date__c' : '',
-                                'User__c' : ''}"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
     <lightning:layout title="User Info" class="slds-box" multipleRows="true">
         <lightning:layoutItem>
             <div class="slds-page-header__name">

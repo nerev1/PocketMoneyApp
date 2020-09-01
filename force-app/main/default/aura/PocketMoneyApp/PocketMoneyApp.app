@@ -1,4 +1,3 @@
 <aura:application extends="force:slds">
-    <c:appHeader />
-    <c:userInfo />
+    <c:appComponent>
 </aura:application>	

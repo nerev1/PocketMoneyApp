@@ -1,8 +1,15 @@
 ({
     deleteTransaction : function(component, event, helper) {
-        var action = component.get("c.deleteTransaction");
+        let action = component.get("c.deleteTransactionController");
         action.setParams({
-            "transact": "v.transaction"
+            "transact": component.get("v.transaction")
+        });
+
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === 'SUCCESS') {
+
+            }
         });
         
         $A.enqueueAction(action);
