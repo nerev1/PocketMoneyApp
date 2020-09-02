@@ -43,32 +43,4 @@
             </lightning:layoutItem>
         </lightning:layoutItem>
     </lightning:layout>
-    <lightning:layout>
-        <lightning:layoutItem class="slds-box">
-            <lightning:layoutItem>
-                <div class="slds-page-header__name">
-                    <div class="slds-page-header__name-title">
-                        <h2>Create transaction form</h2>
-                    </div>
-                </div>
-            </lightning:layoutItem>
-            <form class="slds-form--stacked">          
-                <lightning:input aura:id="transactionform" label="Transaction Name"
-                                 name="transactionname"
-                                 value="{!v.newTransaction.Name}"
-                                 required="true"/> 
-                <lightning:input type="number" aura:id="transactionform" label="Transaction Amount"
-                                 name="transactionamount"
-                                 formatter="currency"
-                                 value="{!v.newTransaction.Amount__c}"/>
-                <lightning:button label="Create Transaction"
-                                  onclick="{!c.clickCreate}"/>
-            </form>
-        </lightning:layoutItem>
-    </lightning:layout>
-    <lightning:layout>
-        <lightning:layoutItem>
-            <c:transactionCardList transactions="{!v.transactionList}"/>
-        </lightning:layoutItem>
-    </lightning:layout>
 </aura:component>	

@@ -9,8 +9,8 @@ public with sharing class PocketMoneyAppController {
     }
 
     @AuraEnabled
-    public static Transaction__c addTransaction(Transaction__c transact) {
-        insert transact;
+    public static Transaction__c saveTransaction(Transaction__c transact) {
+        upsert transact;
         return transact;
     }
 
