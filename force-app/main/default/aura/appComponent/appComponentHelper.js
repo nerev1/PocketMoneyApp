@@ -17,13 +17,29 @@
                 var transactions = component.get('v.transactionList');
                 transactions.push(newTransaction);
                 component.set('v.transactionList', transactions);
-            } else {
-                console.log('((');
             }
         });
     },
 
-    updateTransaction : function(component, transaction) {
+    updateTransaction : function(component, transaction, index) {
         this.saveTransaction(component, transaction);
     },
+
+    deleteTransaction : function(component, transaction, index) {
+        var action = component.get('c.deleteTransactionController');
+        action.setParams({
+            'transact' : transaction,
+        });
+
+        action.setCallback(this, function(response) {
+            if (response.getState() === 'SUCCESS') {
+                let transactionList = component.get('v.transactionList');
+                console.log(index);
+                transactionList.splice(index, 1);
+                component.set('v.transactionList', transactionList);
+            }
+        });
+
+        $A.enqueueAction(action);
+    }
 })

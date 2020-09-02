@@ -1,0 +1,35 @@
+<aura:component>
+    <aura:attribute name="transaction" type="Transaction__c" />
+    <aura:attribute name="index" type="Integer" />
+
+    <aura:registerEvent name="updateTransactionEvt" type="c:updateTransactionEvent"/>
+    <aura:registerEvent name="deleteTransactionEvt" type="c:updateTransactionEvent"/>
+
+    <lightning:layoutItem padding="horizontal-small" size="1" smallDeviceSize="1" mediumDeviceSize="1" largeDeviceSize="1" flexibility="auto">
+            <lightning:formattedText value="{!v.transaction.Name}" />
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="horizontal-small" size="1" smallDeviceSize="1" mediumDeviceSize="1" largeDeviceSize="1" flexibility="auto">
+        <lightning:formattedNumber value="{!v.transaction.Amount__c}" style="currency" title="Transaction Amount"/>
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="horizontal-small" size="1" smallDeviceSize="1" mediumDeviceSize="1" largeDeviceSize="1" flexibility="auto">
+        <lightning:input aura:id="newamount" type="number" formatter="currency" name="{! v.transaction.Name }" label="Enter new amount" disabled="true"/>
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="horizontal-small" size="1" smallDeviceSize="1" mediumDeviceSize="1" largeDeviceSize="1" flexibility="auto">
+        <lightning:formattedDateTime
+            value="{!v.transaction.Created_Date__c}"
+            year="numeric"
+            month="2-digit"
+            day="numeric"
+        />
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="horizontal-small" size="1" smallDeviceSize="1" mediumDeviceSize="1" largeDeviceSize="1" flexibility="auto">
+        <lightning:button aura:id="startupdate" variant="base" label="Update Amount" title="Update Amount" onclick="{! c.startUpdateTransaction }"/>
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="horizontal-small" size="1" smallDeviceSize="1" mediumDeviceSize="1" largeDeviceSize="1" flexibility="auto">
+        <lightning:button aura:id="update" variant="base" label="Finish Update" title="Finish Update" onclick="{! c.updateTransaction }" disabled="true"/>
+    </lightning:layoutItem>
+    <lightning:layoutItem padding="horizontal-small" size="1" smallDeviceSize="1" mediumDeviceSize="1" largeDeviceSize="1" flexibility="auto">
+        <lightning:button variant="base" label="Delete" title="Delete" onclick="{! c.deleteTransaction }"/>
+    </lightning:layoutItem>
+
+</aura:component>

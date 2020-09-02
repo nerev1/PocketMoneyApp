@@ -1,0 +1,16 @@
+<aura:component>
+    <aura:attribute name="transactions" type="Transaction__c[]"/>
+    <aura:registerEvent name="transactionsAfterDelete" type="c:updatedTransactionListEvent"/>
+    <aura:registerEvent name="transactionsAfterUpdate" type="c:updatedTransactionListEvent"/>
+
+    <lightning:card title="Transaction List">
+        <aura:iteration items="{!v.transactions}" var="transaction" indexVar="index">
+            <div class="slds-box">
+                <c:transactionItem transaction="{!transaction}" 
+                updateTransactionEvt="{!c.handleUpdateTransaction}" 
+                deleteTransactionEvt="{!c.handleDeleteTransaction}"
+                index="{!index}"/>
+            </div>
+        </aura:iteration>
+    </lightning:card>
+</aura:component>

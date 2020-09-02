@@ -1,7 +1,10 @@
 <aura:component controller="PocketMoneyAppController">
     <aura:attribute name="transactionList" type="Transaction__c[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
     <c:appHeader />
     <c:userInfo />
     <c:createTransactionForm createTransaction="{!c.handleCreateTransaction}"/>
+    <c:transactionList transactions="{!v.transactionList}" transactionsAfterDelete="{!c.handleDeleteTransaction}" transactionsAfterUpdate="{!c.handleUpdateTransaction}"/>
 </aura:component>

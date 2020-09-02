@@ -16,7 +16,6 @@ public with sharing class PocketMoneyAppController {
 
     @AuraEnabled
     public static void deleteTransactionController(Transaction__c transact) {
-        
         delete transact;
     }
 }

@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="updatedTransaction" type="Transaction__c" />
+    <aura:attribute name="updatedTransactionIndex" type="Integer"/>
+</aura:event>
