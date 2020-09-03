@@ -1,6 +1,5 @@
-<aura:component controller="UserInfoController">
+<aura:component>
     <aura:attribute name="currentUser" type="User"/>
-    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
 
     <lightning:layout title="User Info" class="slds-box" multipleRows="true">
         <lightning:layoutItem>

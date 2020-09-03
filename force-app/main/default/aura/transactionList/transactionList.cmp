@@ -1,5 +1,6 @@
 <aura:component controller="PocketMoneyAppController">
     <aura:attribute name="transactions" type="Transaction__c[]"/>
+    <aura:registerEvent name="updateUserTop" type="c:updateBalanceEvent" />
 
     <lightning:card title="Transaction List">
         <aura:iteration items="{!v.transactions}" var="transaction" indexVar="index">
@@ -7,6 +8,7 @@
                 <c:transactionItem transaction="{!transaction}" 
                 updateTransactionEvt="{!c.handleUpdateTransaction}" 
                 deleteTransactionEvt="{!c.handleDeleteTransaction}"
+                updateBalanceEvt="{!c.handleUpdateBalance}"
                 index="{!index}"/>
             </div>
         </aura:iteration>
