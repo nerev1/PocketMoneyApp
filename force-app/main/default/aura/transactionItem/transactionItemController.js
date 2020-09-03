@@ -16,7 +16,9 @@
             input.set('v.value', 0);
             event.getSource().set('v.disabled', true);
             component.find('startupdate').set('v.disabled', false);
-            helper.update(component, component.get('v.transaction'), component.get('v.index'));
+            let index = component.get('v.index');
+            let transaction = component.get('v.transaction');
+            helper.update(component, transaction, index);
         }
     },
 

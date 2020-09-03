@@ -1,7 +1,5 @@
-<aura:component>
+<aura:component controller="PocketMoneyAppController">
     <aura:attribute name="transactions" type="Transaction__c[]"/>
-    <aura:registerEvent name="transactionsAfterDelete" type="c:updatedTransactionListEvent"/>
-    <aura:registerEvent name="transactionsAfterUpdate" type="c:updatedTransactionListEvent"/>
 
     <lightning:card title="Transaction List">
         <aura:iteration items="{!v.transactions}" var="transaction" indexVar="index">

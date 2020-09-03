@@ -1,12 +1,27 @@
 ({
-    updateTransaction : function(component, transaction, index) {
-        let updateEvent = component.getEvent('transactionsAfterUpdate');
-        updateEvent.setParams({'updatedTransaction' : transaction}, {'updatedTransactionIndex' : index});
-        updateEvent.fire();
+    updateTransaction : function(component, transaction) {
+        let action = component.get('c.saveTransaction');
+        action.setParams({
+            'transact': transaction
+        });
+        $A.enqueueAction(action);
     },
     deleteTransaction : function(component, transaction, index) {
-        let deleteEvent = component.getEvent('transactionsAfterDelete');
-        deleteEvent.setParams({'updatedTransaction' : transaction}, {'updatedTransactionIndex' : index});
-        deleteEvent.fire();
+        
+        let action = component.get('c.deleteTransaction');
+        action.setParams({
+            'transact': transaction
+        });
+        action.setCallback(this, function(response) {
+            if (response.getState() === 'SUCCESS') {
+                let transactionList = component.get('v.transactions');
+                transactionList.splice(index, 1);
+                component.set('v.transactions', transactionList);
+            } else {
+                console.log(response.getState());
+            }
+        });
+        $A.enqueueAction(action);
     },
 })
+

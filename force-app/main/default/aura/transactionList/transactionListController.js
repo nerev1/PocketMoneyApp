@@ -1,8 +1,7 @@
 ({
     handleUpdateTransaction : function(component, event, helper) {
         let transactionForUpdate = event.getParam('transaction');
-        let transactionIndex = event.getParam('index');
-        helper.updateTransaction(component, transactionForUpdate, transactionIndex);
+        helper.updateTransaction(component, transactionForUpdate);
     },
     handleDeleteTransaction : function(component, event, helper) {
         let transactionForDelete = event.getParam('transaction');

@@ -6,5 +6,5 @@
     <c:appHeader />
     <c:userInfo />
     <c:createTransactionForm createTransaction="{!c.handleCreateTransaction}"/>
-    <c:transactionList transactions="{!v.transactionList}" transactionsAfterDelete="{!c.handleDeleteTransaction}" transactionsAfterUpdate="{!c.handleUpdateTransaction}"/>
+    <c:transactionList transactions="{!v.transactionList}"/>
 </aura:component>
