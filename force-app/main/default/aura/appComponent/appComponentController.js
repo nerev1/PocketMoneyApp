@@ -5,11 +5,12 @@
     },
 
     updateUser : function(component, event, helper) {
-        helper.updateUserMethod(component);
+        helper.updateUserMethod(component, component.get('v.user'));
     },
     
     doInit : function(component, event, helper) {
-        helper.updateUserMethod(component);
+        helper.getCurrentUserMethod(component);
+        helper.updateUserMethod(component, component.get('v.user'));
         helper.updateTransaction(component);
     }
 })

@@ -4,8 +4,18 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 
-    <c:appHeader />
-    <c:userInfo currentUser="{!v.user}"/>
-    <c:createTransactionForm createTransaction="{!c.handleCreateTransaction}"/>
-    <c:transactionList transactions="{!v.transactionList}" updateUserTop="{!c.updateUser}"/>
+    <lightning:layout horizontalAlign="center" verticalAlign="start" multipleRows="true">
+        <lightning:layoutItem size="12" flexibility="auto">
+            <c:appHeader />
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12" class="slds-box">
+            <c:userInfo currentUser="{!v.user}"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12" class="sldx-box">
+            <c:createTransactionForm createTransaction="{!c.handleCreateTransaction}"/>        
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12">
+            <c:transactionList transactions="{!v.transactionList}" updateUserTop="{!c.updateUser}"/>
+        </lightning:layoutItem>
+    </lightning:layout>
 </aura:component>

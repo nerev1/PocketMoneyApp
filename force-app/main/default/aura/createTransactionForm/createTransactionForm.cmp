@@ -6,27 +6,34 @@
                                 'Created_Date__c' : '',
                                 'User__c' : ''}"/>
     <aura:registerEvent name="createTransaction" type="c:updateTransactionEvent" />
-    <lightning:layout>
-        <lightning:layoutItem class="slds-box">
-            <lightning:layoutItem>
-                <div class="slds-page-header__name">
-                    <div class="slds-page-header__name-title">
-                        <h2>Create transaction form</h2>
-                    </div>
+    <lightning:layoutItem class="slds-box">
+        <lightning:layoutItem>
+            <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                    <h2>Create transaction form</h2>
                 </div>
-            </lightning:layoutItem>
+            </div>
+        </lightning:layoutItem>
+        <lightning:layoutItem size="12" largeDeviceSize="4" padding="around-small">
             <form class="slds-form--stacked">          
-                <lightning:input aura:id="transactionform" label="Transaction Name"
-                                 name="transactionname"
-                                 value="{!v.transaction.Name}"
-                                 required="true"/> 
-                <lightning:input type="number" aura:id="transactionform" label="Transaction Amount"
-                                 name="transactionamount"
-                                 formatter="currency"
-                                 value="{!v.transaction.Amount__c}"/>
-                <lightning:button label="Create Transaction"
-                                  onclick="{!c.clickCreate}"/>
+                <lightning:layoutItem padding="around-small">
+                    <lightning:input type="number" aura:id="transactionform" label="Transaction Amount"
+                                        name="transactionamount"
+                                        formatter="currency"
+                                        value="{!v.transaction.Amount__c}"/>
+                </lightning:layoutItem>
+                <!--<lightning:layoutItem padding="around-small">
+                    <lightning:input type="date" aura:id="transactionform" 
+                                        name="transactiondate" 
+                                        label="Created Date" 
+                                        value="{!v.transaction.Created_Date__c}"/>
+                </lightning:layoutItem>-->
+                <lightning:layoutItem padding="around-small">
+                    <lightning:button label="Create Transaction"
+                                        onclick="{!c.clickCreate}"/>
+                
+                </lightning:layoutItem>
             </form>
         </lightning:layoutItem>
-    </lightning:layout>
+    </lightning:layoutItem>
 </aura:component>

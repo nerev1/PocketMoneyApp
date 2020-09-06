@@ -20,9 +20,16 @@ public with sharing class PocketMoneyAppController {
     }
 
     @AuraEnabled
-    public static User getUser() {
-        return [SELECT Username, Name, Email__c, Address, MobilePhone, Balance__c 
+    public static User getUser(User user) {
+        return [SELECT Username, Name, Email__c, City,  Country, Street, MobilePhone, Balance__c 
         FROM User 
-        WHERE Id = :UserInfo.getUserId()];
+        WHERE Id = :user.Id];
+    }
+
+    @AuraEnabled
+    public static User getCurrentUser(){
+        return [SELECT Username, Name, Email__c, City,  Country, Street, MobilePhone, Balance__c 
+        FROM User 
+        WHERE Id = :userInfo.getUserId()];
     }
 }

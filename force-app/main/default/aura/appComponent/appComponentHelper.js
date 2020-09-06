@@ -1,6 +1,7 @@
 ({
-    updateUserMethod : function(component) {
+    updateUserMethod : function(component, currentUser) {
         let userInfoAction = component.get('c.getUser');
+        userInfoAction.setParams({'user' : currentUser});
         userInfoAction.setCallback(this, function(response) {
             let state = response.getState();
             if (state === 'SUCCESS') {
@@ -8,6 +9,17 @@
             }
         });
         $A.enqueueAction(userInfoAction);
+    },
+
+    getCurrentUserMethod : function(component) {
+        let getCurrentUserAction = component.get('c.getCurrentUser');
+        getCurrentUserAction.setCallback(this, function(response) {
+            let state = response.getState();
+            if (state === "SUCCESS") {
+                component.set('v.user', response.getReturnValue());
+            }
+        });
+        $A.enqueueAction(getCurrentUserAction);
     },
 
     createTransaction : function(component, newTransaction) {
