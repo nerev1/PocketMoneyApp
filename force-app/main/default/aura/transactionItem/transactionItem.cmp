@@ -4,7 +4,6 @@
 
     <aura:registerEvent name="updateTransactionEvt" type="c:updateTransactionEvent"/>
     <aura:registerEvent name="deleteTransactionEvt" type="c:updateTransactionEvent"/>
-    <aura:registerEvent name="updateBalanceEvt" type="c:updateBalanceEvent"/>
     <lightning:layout verticalAlign="center">
         <lightning:layoutItem padding="around-medium" size="2">
             <lightning:formattedNumber value="{!v.transaction.Amount__c}" style="currency" title="Transaction Amount"/>

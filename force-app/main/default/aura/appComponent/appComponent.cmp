@@ -1,21 +1,14 @@
-<aura:component controller="PocketMoneyAppController">
-    <aura:attribute name="user" type="User" />
-    <aura:attribute name="transactionList" type="Transaction__c[]"/>
-    
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-
+<aura:component controller="AppComponentController">
+    <aura:attribute name="currentUser" type="User" />
     <lightning:layout horizontalAlign="center" verticalAlign="start" multipleRows="true">
         <lightning:layoutItem size="12" flexibility="auto">
             <c:appHeader />
         </lightning:layoutItem>
         <lightning:layoutItem size="12" class="slds-box">
-            <c:userInfo currentUser="{!v.user}"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem size="12" class="sldx-box">
-            <c:createTransactionForm createTransaction="{!c.handleCreateTransaction}"/>        
+            <c:userInfo user="{!v.currentUser}"/>
         </lightning:layoutItem>
         <lightning:layoutItem size="12">
-            <c:transactionList transactions="{!v.transactionList}" updateUserTop="{!c.updateUser}"/>
+            <c:transactionList transactUser="{!v.currentUser}" updateBalance="{!c.updateUser}"/>
         </lightning:layoutItem>
     </lightning:layout>
 </aura:component>

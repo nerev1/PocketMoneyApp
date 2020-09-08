@@ -1,12 +1,17 @@
-<aura:component controller="PocketMoneyAppController">
+<aura:component controller="TransactionsController">
+    <aura:attribute name="transactUser" type="User"/>
     <aura:attribute name="transactions" type="Transaction__c[]"/>
-    <aura:registerEvent name="updateUserTop" type="c:updateBalanceEvent" />
+    <aura:handler name="change" value="{!v.transactUser}" action="{!c.initTransactions}"/>
+    <aura:registerEvent name="updateBalance" type="c:updateBalanceEvent" />
+    <lightning:layoutItem size="12" class="sldx-box">
+        <c:createTransactionForm createTransaction="{!c.handleCreateTransaction}"/> 
+    </lightning:layoutItem>
+
     <lightning:layoutItem size="12">
         <aura:iteration items="{!v.transactions}" var="transaction" indexVar="index">
             <c:transactionItem transaction="{!transaction}" 
                                 updateTransactionEvt="{!c.handleUpdateTransaction}" 
                                 deleteTransactionEvt="{!c.handleDeleteTransaction}"
-                                updateBalanceEvt="{!c.handleUpdateBalance}"
                                 index="{!index}"/>
         </aura:iteration>
     </lightning:layoutItem>

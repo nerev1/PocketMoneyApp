@@ -1,16 +1,5 @@
 ({
-    handleCreateTransaction : function(component, event, helper) {
-        var newTransaction = event.getParam("transaction");
-        helper.createTransaction(component, newTransaction);
-    },
-
     updateUser : function(component, event, helper) {
-        helper.updateUserMethod(component, component.get('v.user'));
+        helper.updateUserInfo(component, component.get('v.currentUser'));
     },
-    
-    doInit : function(component, event, helper) {
-        helper.getCurrentUserMethod(component);
-        helper.updateUserMethod(component, component.get('v.user'));
-        helper.updateTransaction(component);
-    }
 })

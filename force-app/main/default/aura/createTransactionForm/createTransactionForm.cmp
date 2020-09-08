@@ -1,11 +1,9 @@
 <aura:component>
     <aura:attribute name="transaction" type="Transaction__c"
                     default="{  'sObjectType' : 'Transaction__c',
-                                'Name' : '',
-                                'Amount__c' : 0,
-                                'Created_Date__c' : '',
-                                'User__c' : ''}"/>
+                                'Amount__c' : 0}"/>
     <aura:registerEvent name="createTransaction" type="c:updateTransactionEvent" />
+
     <lightning:layoutItem class="slds-box">
         <lightning:layoutItem>
             <div class="slds-page-header__name">
@@ -22,12 +20,6 @@
                                         formatter="currency"
                                         value="{!v.transaction.Amount__c}"/>
                 </lightning:layoutItem>
-                <!--<lightning:layoutItem padding="around-small">
-                    <lightning:input type="date" aura:id="transactionform" 
-                                        name="transactiondate" 
-                                        label="Created Date" 
-                                        value="{!v.transaction.Created_Date__c}"/>
-                </lightning:layoutItem>-->
                 <lightning:layoutItem padding="around-small">
                     <lightning:button label="Create Transaction"
                                         onclick="{!c.clickCreate}"/>

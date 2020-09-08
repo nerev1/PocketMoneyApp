@@ -11,13 +11,14 @@
         input.showHelpMessageIfInvalid();
 
         if (input.get('v.validity').valid) {
-            component.set('v.transaction.Amount__c', input.get('v.value'));
+            let newAmount = input.get('v.value');
             component.find('newamount').set('v.disabled', true);
             input.set('v.value', 0);
             event.getSource().set('v.disabled', true);
             component.find('startupdate').set('v.disabled', false);
             let index = component.get('v.index');
             let transaction = component.get('v.transaction');
+            transaction.Amount__c = newAmount;
             helper.update(component, transaction, index);
         }
     },

@@ -1,34 +1,34 @@
 <aura:component>
-    <aura:attribute name="currentUser" type="User"/>
+    <aura:attribute name="user" type="User"/>
     <lightning:layout multipleRows="false">
         <lightning:layoutItem padding="around-small" flexibility="auto">
             <div class="header-column">
                 <p class="field-title" title="Name">Name</p>
-                <p>{! v.currentUser.Name }</p>
+                <p>{! v.user.Name }</p>
             </div>
         </lightning:layoutItem>
         <lightning:layoutItem padding="around-small" flexibility="auto">
             <div class="header-column">
                 <p class="field-title" title="Address">Address</p>
-                <p>{! v.currentUser.Country + ', ' +v.currentUser.City + ', ' + v.currentUser.Street}</p>
+                <p>{! v.user.Country + ', ' +v.user.City + ', ' + v.user.Street}</p>
             </div>
         </lightning:layoutItem>
         <lightning:layoutItem padding="around-small" flexibility="auto">
             <div class="header-column">
                 <p class="field-title" title="Email">Email</p>
-                <p>{! v.currentUser.Email__c }</p>
+                <p>{! v.user.Email__c }</p>
             </div>
         </lightning:layoutItem>
         <lightning:layoutItem padding="around-small" flexibility="auto">
             <div class="header-column">
                 <p class="field-title" title="MobilePhone">MobilePhone</p>
-                <p>{! v.currentUser.MobilePhone }</p>
+                <p>{! v.user.MobilePhone }</p>
             </div>
         </lightning:layoutItem>
         <lightning:layoutItem padding="around-small" flexibility="auto">
             <div class="header-column">
                 <p class="field-title" title="Balance">Balance</p>
-                <p>{! v.currentUser.Balance__c }</p>
+                <p>{! v.user.Balance__c }</p>
             </div>
         </lightning:layoutItem>
     </lightning:layout>

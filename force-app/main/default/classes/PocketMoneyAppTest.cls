@@ -1,6 +1,6 @@
 @isTest
 private class PocketMoneyAppTest {
-    @isTest
+   /* @isTest
     static void testGetTransactions() {
         List<Transaction__c> expectedTransactions = [SELECT Id, Amount__c, Created_Date__c, CreatedById
         FROM Transaction__c
@@ -61,5 +61,5 @@ private class PocketMoneyAppTest {
         currentUser = [SELECT Balance__c FROM User WHERE Id = :userInfo.getUserId()];
         Decimal expectedBalance = balanceBeforeUpdate + transactionDifference;
         System.assertEquals(expectedBalance, currentUser.Balance__c);
-    }
+    }*/
 }
