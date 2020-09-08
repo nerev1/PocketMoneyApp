@@ -1,4 +1,4 @@
-<aura:component controller="PocketMoneyAppController">
+<aura:component>
     <div class="slds-box">
         <div class="page-section page-header">
             <h1 class="slds-text-heading--label">Pocket Money App</h1>

@@ -1,19 +1,20 @@
 @isTest
 private class PocketMoneyAppTest {
-   /* @isTest
+    @isTest
     static void testGetTransactions() {
         List<Transaction__c> expectedTransactions = [SELECT Id, Amount__c, Created_Date__c, CreatedById
         FROM Transaction__c
         WHERE CreatedById = :UserInfo.getUserId()
         ORDER BY Created_Date__c DESC];
-        List<Transaction__c> transactions = PocketMoneyAppController.getTransactions();
+        User currentUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+        List<Transaction__c> transactions = TransactionsController.getTransactions(currentUser);
         System.assertEquals(expectedTransactions, transactions);
     }
 
     @isTest
     static void testSaveTransaction() {
         Transaction__c transactionForSave = new Transaction__c(Amount__c = 200);
-        Transaction__c savedTransaction = PocketMoneyAppController.saveTransaction (transactionForSave);
+        Transaction__c savedTransaction = TransactionsController.saveTransaction (transactionForSave);
         List<Transaction__c> insertedTransaction = [SELECT Id 
                                                 FROM Transaction__c
                                                 WHERE Id = :transactionForSave.Id];
@@ -29,7 +30,7 @@ private class PocketMoneyAppTest {
                                                     FROM Transaction__c 
                                                     WHERE Id = :transactionForDelete.Id];
         System.assertEquals(1, insertedTransaction.size());
-        PocketMoneyAppController.deleteTransaction(transactionForDelete);
+        TransactionsController.deleteTransaction(transactionForDelete);
         insertedTransaction = [SELECT Id 
                                 FROM Transaction__c 
                                 WHERE Id = :transactionForDelete.Id];
@@ -39,13 +40,13 @@ private class PocketMoneyAppTest {
     @isTest
     static void testGetUser() {
         User testUser = [SELECT Id FROM User WHERE Id = :userInfo.getUserId()];
-        User returnedUser = PocketMoneyAppController.getUser(testUser);
+        User returnedUser = AppComponentController.getUser(testUser);
         System.assertEquals(testUser.Id, returnedUser.Id);
     }
 
     @isTest
     static void testGetCurrentUser() {
-        User returnedUser = PocketMoneyAppController.getCurrentUser();
+        User returnedUser = CurrentUserController.getCurrentUser();
         System.assertEquals(userInfo.getUserId(), returnedUser.Id);
     }
 
@@ -61,5 +62,5 @@ private class PocketMoneyAppTest {
         currentUser = [SELECT Balance__c FROM User WHERE Id = :userInfo.getUserId()];
         Decimal expectedBalance = balanceBeforeUpdate + transactionDifference;
         System.assertEquals(expectedBalance, currentUser.Balance__c);
-    }*/
+    }
 }
